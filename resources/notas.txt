@@ -1,0 +1,34 @@
+Un ORM (Object-Relational Mapping o Mapeo Objeto-Relacional) es una herramienta o técnica de programación que permite interactuar con
+bases de datos relacionales mediante objetos en lugar de utilizar directamente consultas SQL. El ORM se encarga de mapear las tablas
+de la base de datos a clases en el lenguaje de programación que se esté utilizando, de modo que las operaciones como crear, leer, 
+actualizar y eliminar datos (CRUD) se realicen manipulando objetos y sus propiedades.
+
+
+orm que utiliza laravel es eloquent
+
+bloque de codigo que puedo generar o escribir desde mi editor de codigo para crear la estructura de mi tabla dentro mi  base de datos
+
+factories una forma de poblar o llenar una base de datos con datos random o datos predefinidos
+
+@layout:
+es una plantilla base que define la estructura y diseño comun de una pagina web y permite reutilizar elementos de diseño y codigo, como
+encabezados, menus, pies de pagina. en multiples vistas sin tener que repitir el mismo código en cada archivo, ayudando a optimizar un poco
+mas el proyecto al momento de querer recargar los recursos de la página web.
+
+@yield:
+Lo utilizamos para marcar un area en un layout donde se puede insertar contenido específico de una vista. actua como un marcador de 
+posicion que permite a las vistas, que utilisen ese layout inyectar contenido en la posicion designada dentro de las vistas.
+
+/*@foreach($formularios as $formulario)
+        <tr class="table-active text-white">
+                <td scope="row">{{$formulario->id}}</td>
+                <td>{{$formulario->nombre}}</td>
+                <td>{{$formulario->apellido}}</td>
+                <td>{{$formulario->fecha_nacimiento}}</td>
+                <td>{{$formulario->genero}}</td>
+                <td>{{$formulario->edad}}</td>
+        </tr>
+        @endforeach */
+
+$formularios = formularioModel::all();
+        return view('index', compact('formularios'));
