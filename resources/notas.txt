@@ -19,16 +19,5 @@ mas el proyecto al momento de querer recargar los recursos de la página web.
 Lo utilizamos para marcar un area en un layout donde se puede insertar contenido específico de una vista. actua como un marcador de 
 posicion que permite a las vistas, que utilisen ese layout inyectar contenido en la posicion designada dentro de las vistas.
 
-/*@foreach($formularios as $formulario)
-        <tr class="table-active text-white">
-                <td scope="row">{{$formulario->id}}</td>
-                <td>{{$formulario->nombre}}</td>
-                <td>{{$formulario->apellido}}</td>
-                <td>{{$formulario->fecha_nacimiento}}</td>
-                <td>{{$formulario->genero}}</td>
-                <td>{{$formulario->edad}}</td>
-        </tr>
-        @endforeach */
 
-$formularios = formularioModel::all();
-        return view('index', compact('formularios'));
+

@@ -13,7 +13,9 @@ class FormularioController extends Controller
     public function index()
     {
         //
-        return view('index');
+        $formularios = formularioModel::all();
+        return view('index', compact('formularios'));
+        
     }
 
     /**
@@ -34,8 +36,14 @@ class FormularioController extends Controller
     public function store(Request $request)
     {
         //
-
-        dd($request->all());
+        $formulario = new formularioModel();
+        $formulario->nombre = $request->nombre;
+        $formulario->apellido = $request->apellido;
+        $formulario->fecha_nacimiento = $request->fecha_nacimiento;
+        $formulario->genero = $request->genero;
+        $formulario->edad = $request->edad;
+        $formulario->save();
+        return redirect()->route('index');
     }
 
     /**
@@ -45,6 +53,8 @@ class FormularioController extends Controller
     {
         //
         
+        return view('showFormulario', compact('formularioModel'));
+        
     }
 
     /**
@@ -53,6 +63,7 @@ class FormularioController extends Controller
     public function edit(formularioModel $formularioModel)
     {
         //
+        return view('editFormulario', compact('formularioModel'));
     }
 
     /**
@@ -61,6 +72,14 @@ class FormularioController extends Controller
     public function update(Request $request, formularioModel $formularioModel)
     {
         //
+        $formularioModel->nombre = $request->nombre;
+        $formularioModel->apellido = $request->apellido;
+        $formularioModel->fecha_nacimiento = $request->fecha_nacimiento;
+        $formularioModel->genero = $request->genero;
+        $formularioModel->edad = $request->edad;
+        $formularioModel->save();
+        return redirect()->route('index')->with('success', 'Formulario actualizado');
+       
     }
 
     /**
@@ -69,5 +88,7 @@ class FormularioController extends Controller
     public function destroy(formularioModel $formularioModel)
     {
         //
+        $formularioModel->delete();
+        return back()->with('success', 'Formulario eliminado');
     }
 }
